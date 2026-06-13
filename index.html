@@ -54,17 +54,19 @@
 
       main {
         min-height: 100vh;
+        width: 100%;
         display: grid;
         place-items: center;
         padding: 20px;
       }
 
       .notice {
-        width: min(100%, 720px);
+        width: 100%;
+        max-width: 1060px;
         background: var(--panel);
         border: 1px solid var(--line);
         border-radius: 8px;
-        padding: 38px 42px;
+        padding: 40px 44px;
         box-shadow: 0 24px 70px rgba(27, 30, 35, 0.08);
       }
 
@@ -86,6 +88,18 @@
         border: 2px solid var(--accent);
         color: var(--accent);
         font-size: 0.9rem;
+      }
+
+      .story-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
+        gap: 36px;
+        align-items: center;
+        min-width: 0;
+      }
+
+      .story-copy {
+        min-width: 0;
       }
 
       h1 {
@@ -114,6 +128,10 @@
         color: var(--steel);
       }
 
+      .mobile-break {
+        display: none;
+      }
+
       p {
         max-width: 58ch;
         margin: 18px 0 0;
@@ -125,7 +143,85 @@
       a {
         color: var(--accent);
         font-weight: 700;
+        overflow-wrap: anywhere;
         text-underline-offset: 4px;
+      }
+
+      .system-art {
+        position: relative;
+        min-width: 0;
+        min-height: 390px;
+        margin: 0;
+        display: grid;
+        place-items: center;
+      }
+
+      .system-art svg {
+        width: min(100%, 380px);
+        height: auto;
+        display: block;
+        overflow: visible;
+      }
+
+      .art-grid {
+        stroke: rgba(49, 83, 108, 0.15);
+        stroke-width: 1;
+      }
+
+      .art-shadow {
+        fill: rgba(32, 34, 37, 0.08);
+      }
+
+      .art-panel {
+        fill: #f8faf8;
+        stroke: var(--steel);
+        stroke-width: 3;
+      }
+
+      .art-panel-soft {
+        fill: #e2f7f3;
+        stroke: var(--accent);
+        stroke-width: 3;
+      }
+
+      .art-panel-warm {
+        fill: #fff1dc;
+        stroke: var(--copper);
+        stroke-width: 3;
+      }
+
+      .art-line {
+        fill: none;
+        stroke: var(--steel);
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 5;
+      }
+
+      .art-line-light {
+        fill: none;
+        stroke: rgba(15, 118, 110, 0.55);
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 3;
+      }
+
+      .art-node {
+        fill: var(--accent);
+      }
+
+      .art-node-warm {
+        fill: var(--copper);
+      }
+
+      .art-label {
+        fill: var(--ink);
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", sans-serif;
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: 0;
       }
 
       .status {
@@ -147,28 +243,84 @@
       }
 
       @media (max-width: 640px) {
+        :root {
+          --mobile-copy: min(280px, calc(100vw - 120px));
+        }
+
+        html,
+        body {
+          overflow-x: hidden;
+          width: 100%;
+        }
+
         main {
+          overflow-x: hidden;
           padding: 18px;
         }
 
         .notice {
-          padding: 28px;
+          width: calc(100vw - 36px);
+          max-width: calc(100vw - 36px);
+          overflow: hidden;
+          padding: 24px;
         }
 
         .brand {
-          margin-bottom: 28px;
+          margin-bottom: 24px;
+        }
+
+        .story-layout {
+          grid-template-columns: 1fr;
+          gap: 20px;
+          width: var(--mobile-copy);
+          max-width: var(--mobile-copy);
+        }
+
+        .story-copy {
+          width: var(--mobile-copy);
+          max-width: var(--mobile-copy);
+        }
+
+        .system-art {
+          width: 100%;
+          min-height: auto;
+          overflow: hidden;
+          order: -1;
+        }
+
+        .system-art svg {
+          width: min(100%, 250px);
+          overflow: hidden;
         }
 
         h1 {
-          font-size: 2.25rem;
+          width: var(--mobile-copy);
+          max-width: var(--mobile-copy);
+          font-size: 1.9rem;
+          line-height: 1.08;
+        }
+
+        .title-line {
+          display: block;
+        }
+
+        .mobile-break {
+          display: block;
         }
 
         p {
+          width: var(--mobile-copy);
+          max-width: var(--mobile-copy);
           font-size: 1rem;
+          line-height: 1.55;
+          overflow-wrap: normal;
         }
 
         .status {
+          width: var(--mobile-copy);
+          max-width: var(--mobile-copy);
           align-items: flex-start;
+          flex-wrap: wrap;
         }
       }
     </style>
@@ -180,32 +332,94 @@
           <span class="mark" aria-hidden="true">SS</span>
           <span>SS BuilderTech</span>
         </div>
-        <h1 id="page-title">
-          <span class="title-line">Building systems</span>
-          <span class="title-line title-accent">for the next chapter</span>
-          <span class="title-line">
-            <span class="title-steel">of</span>
-            <span class="title-copper">construction.</span>
-          </span>
-        </h1>
-        <p>
-          Every project carries a hidden system: the materials selected, the
-          way design decisions travel, the sequence of work, and the details
-          that decide how well a building comes together.
-        </p>
-        <p>
-          SS BuilderTech is working in stealth mode on construction methods that
-          connect those pieces into a smarter operating model, bringing material
-          intelligence, design precision, and field execution into one
-          disciplined flow.
-        </p>
-        <p>
-          For select inquiries, please email
-          <a href="mailto:info@ssbuildertech.com">info@ssbuildertech.com</a>.
-        </p>
-        <div class="status">
-          <span class="dot" aria-hidden="true"></span>
-          <span>Stealth mode active.</span>
+        <div class="story-layout">
+          <div class="story-copy">
+            <h1 id="page-title">
+              <span class="title-line">Building systems</span>
+              <span class="title-line title-accent">
+                for the next
+                <span class="mobile-break" aria-hidden="true"></span>
+                chapter
+              </span>
+              <span class="title-line">
+                <span class="title-steel">of</span>
+                <span class="title-copper">construction.</span>
+              </span>
+            </h1>
+            <p>
+              Every project carries a hidden system: the materials selected, the
+              way design decisions travel, the sequence of work, and the details
+              that decide how well a building comes together.
+            </p>
+            <p>
+              SS BuilderTech is working in stealth mode on construction methods
+              that connect those pieces into a smarter operating model, bringing
+              material intelligence, design precision, and field execution into
+              one disciplined flow.
+            </p>
+            <p>
+              For select inquiries, please email
+              <a href="mailto:info@ssbuildertech.com">info@ssbuildertech.com</a>.
+            </p>
+            <div class="status">
+              <span class="dot" aria-hidden="true"></span>
+              <span>Stealth mode active.</span>
+            </div>
+          </div>
+          <figure
+            class="system-art"
+            aria-label="Illustration of connected building-system components"
+          >
+            <svg viewBox="0 0 420 430" role="img">
+              <g class="art-grid">
+                <path d="M40 36H370M40 86H370M40 136H370M40 186H370M40 236H370M40 286H370M40 336H370" />
+                <path d="M70 20V374M120 20V374M170 20V374M220 20V374M270 20V374M320 20V374" />
+              </g>
+              <ellipse class="art-shadow" cx="210" cy="370" rx="142" ry="28" />
+              <path
+                class="art-line-light"
+                d="M98 282C130 240 156 238 184 260C212 282 240 280 274 232C300 195 324 184 350 202"
+              />
+              <circle class="art-node" cx="98" cy="282" r="8" />
+              <circle class="art-node-warm" cx="184" cy="260" r="8" />
+              <circle class="art-node" cx="274" cy="232" r="8" />
+              <circle class="art-node-warm" cx="350" cy="202" r="8" />
+              <path class="art-line" d="M206 60V123" />
+              <path class="art-line" d="M188 123H224L218 152H194Z" />
+              <path class="art-line" d="M206 152V176" />
+              <path class="art-line" d="M196 176C196 192 216 192 216 176" />
+              <path
+                class="art-panel"
+                d="M82 234L174 192L174 296L82 338Z"
+              />
+              <path
+                class="art-panel-soft"
+                d="M174 192L286 222L286 326L174 296Z"
+              />
+              <path
+                class="art-panel-warm"
+                d="M82 234L194 264L286 222L174 192Z"
+              />
+              <path class="art-line-light" d="M112 246L154 230M112 276L154 260M112 306L154 290" />
+              <path class="art-line-light" d="M204 232L258 246M204 266L258 280M204 300L258 314" />
+              <path class="art-line" d="M72 222L174 176L306 212" />
+              <path class="art-line" d="M306 212V340L174 318L72 356V222Z" />
+              <circle class="art-node" cx="72" cy="222" r="7" />
+              <circle class="art-node-warm" cx="174" cy="176" r="7" />
+              <circle class="art-node" cx="306" cy="212" r="7" />
+              <circle class="art-node-warm" cx="174" cy="318" r="7" />
+              <g transform="translate(286 82)">
+                <rect class="art-panel-soft" x="0" y="0" width="78" height="52" rx="6" />
+                <path class="art-line-light" d="M16 18H62M16 34H48" />
+                <text class="art-label" x="16" y="73">SYSTEM</text>
+              </g>
+              <g transform="translate(52 88)">
+                <rect class="art-panel-warm" x="0" y="0" width="72" height="46" rx="6" />
+                <path class="art-line-light" d="M15 16H57M15 30H42" />
+                <text class="art-label" x="8" y="68">FIELD</text>
+              </g>
+            </svg>
+          </figure>
         </div>
       </section>
     </main>

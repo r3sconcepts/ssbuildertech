@@ -8,15 +8,21 @@
     <title>SS BuilderTech</title>
     <meta
       name="description"
-      content="SS BuilderTech is developing sophisticated building systems in stealth mode."
+      content="SS BuilderTech is shaping sophisticated building systems for the next chapter of construction."
     />
     <meta property="og:title" content="SS BuilderTech" />
     <meta
       property="og:description"
-      content="Sophisticated building systems, quietly in development."
+      content="Building systems for the next chapter of construction."
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://ssbuildertech.com/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,650..800,40..90&family=Inter:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
     <style>
       :root {
         color-scheme: light;
@@ -25,6 +31,8 @@
         --muted: #60656c;
         --line: #d8d1c6;
         --accent: #0f766e;
+        --copper: #b45309;
+        --steel: #31536c;
         --panel: #ffffff;
       }
 
@@ -48,7 +56,7 @@
         min-height: 100vh;
         display: grid;
         place-items: center;
-        padding: 32px 20px;
+        padding: 20px;
       }
 
       .notice {
@@ -56,7 +64,7 @@
         background: var(--panel);
         border: 1px solid var(--line);
         border-radius: 8px;
-        padding: 42px;
+        padding: 38px 42px;
         box-shadow: 0 24px 70px rgba(27, 30, 35, 0.08);
       }
 
@@ -64,7 +72,7 @@
         display: inline-flex;
         align-items: center;
         gap: 12px;
-        margin-bottom: 30px;
+        margin-bottom: 24px;
         font-weight: 800;
         letter-spacing: 0;
         text-transform: uppercase;
@@ -81,19 +89,37 @@
       }
 
       h1 {
-        max-width: 10.5em;
+        max-width: 11em;
         margin: 0;
-        font-size: 3.7rem;
-        line-height: 1;
+        font-family: Fraunces, Georgia, serif;
+        font-size: 3.05rem;
+        font-weight: 760;
+        line-height: 1.06;
         letter-spacing: 0;
+      }
+
+      .title-line {
+        display: block;
+      }
+
+      .title-accent {
+        color: var(--accent);
+      }
+
+      .title-copper {
+        color: var(--copper);
+      }
+
+      .title-steel {
+        color: var(--steel);
       }
 
       p {
         max-width: 58ch;
-        margin: 22px 0 0;
+        margin: 18px 0 0;
         color: var(--muted);
-        font-size: 1.125rem;
-        line-height: 1.65;
+        font-size: 1.06rem;
+        line-height: 1.6;
       }
 
       a {
@@ -106,8 +132,8 @@
         display: inline-flex;
         align-items: center;
         gap: 10px;
-        margin-top: 28px;
-        padding-top: 22px;
+        margin-top: 24px;
+        padding-top: 20px;
         border-top: 1px solid var(--line);
         color: var(--muted);
         font-size: 0.95rem;
@@ -134,7 +160,7 @@
         }
 
         h1 {
-          font-size: 2.65rem;
+          font-size: 2.25rem;
         }
 
         p {
@@ -155,13 +181,23 @@
           <span>SS BuilderTech</span>
         </div>
         <h1 id="page-title">
-          Sophisticated building systems, quietly in development.
+          <span class="title-line">Building systems</span>
+          <span class="title-line title-accent">for the next chapter</span>
+          <span class="title-line">
+            <span class="title-steel">of</span>
+            <span class="title-copper">construction.</span>
+          </span>
         </h1>
         <p>
-          SS BuilderTech is developing advanced construction methods that bring
-          together material intelligence, design precision, and field execution.
-          We are currently operating in stealth mode while our systems,
-          partnerships, and project work take shape.
+          Every project carries a hidden system: the materials selected, the
+          way design decisions travel, the sequence of work, and the details
+          that decide how well a building comes together.
+        </p>
+        <p>
+          SS BuilderTech is working in stealth mode on construction methods that
+          connect those pieces into a smarter operating model, bringing material
+          intelligence, design precision, and field execution into one
+          disciplined flow.
         </p>
         <p>
           For select inquiries, please email
